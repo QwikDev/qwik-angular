@@ -5,13 +5,11 @@
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nx/js:tsc",
+      "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/qwik-angular",
-        "main": "packages/qwik-angular/src/index.ts",
-        "tsConfig": "packages/qwik-angular/tsconfig.lib.json",
-        "assets": ["packages/qwik-angular/*.md"]
+        "mode": "lib"
       }
     },
     "publish": {
@@ -22,7 +20,7 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["packages/qwik-angular/**/*.ts"]
+        "lintFilePatterns": ["packages/qwik-angular/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },

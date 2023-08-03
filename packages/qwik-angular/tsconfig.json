@@ -4,10 +4,13 @@
     "module": "commonjs",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "@builder.io/qwik",
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "lib": ["es2020", "DOM", "WebWorker", "DOM.Iterable"]
   },
   "files": [],
   "include": [],

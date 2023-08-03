@@ -1,8 +1,10 @@
 {
   "name": "qwik-angular",
   "version": "0.1.0",
-  "description": "QwikAngular allows adding Angular components into existing Qwik application",
-  "type": "commonjs",
+  "description": "TODO ADD QWIK DEP BACK!! QwikAngular allows adding Angular components into existing Qwik application",
+  "main": "./index.qwik.mjs",
+  "qwik": "./index.qwik.mjs",
+  "types": "./index.qwik.d.ts",
   "dependencies": {
     "@analogjs/vite-plugin-angular": "0.2.0-beta.19",
     "@angular-devkit/build-angular": "~16.1.0",
@@ -14,9 +16,20 @@
     "@angular/platform-browser-dynamic": "~16.1.0",
     "@angular/platform-browser": "~16.1.0",
     "@angular/platform-server": "~16.1.0",
-    "@builder.io/qwik": "^1.0.0",
     "rxjs": "~7.8.0",
     "sass": "^1.60.0",
     "zone.js": "~0.13.0"
+  },
+  "exports": {
+    ".": {
+      "import": "./index.qwik.mjs",
+      "require": "./index.qwik.cjs",
+      "types": "./index.qwik.d.ts"
+    },
+    "./vite": {
+      "import": "./vite.mjs",
+      "require": "./vite.cjs",
+      "types": "./vite.d.ts"
+    }
   }
 }

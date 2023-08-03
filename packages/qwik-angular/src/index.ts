@@ -1,1 +1,1 @@
-export * from './lib/qwik-angular';
+export * from './index.qwik';
