@@ -77,7 +77,8 @@ export interface QwikifyBase {
   'host:onMouseOver$'?: PropFunction<(ev: Event) => void>;
 }
 
-export type QwikifyProps<PROPS extends Record<string, any>> = PROPS & QwikifyBase;
+export type QwikifyProps<PROPS extends Record<string, any>> = PROPS &
+  QwikifyBase;
 
 export interface QwikifyOptions {
   tagName?: string;
@@ -89,9 +90,10 @@ export interface QwikifyOptions {
 type TransformKey<K> = K extends string ? `${K}$` : K;
 
 type QwikifiedOutputs<ComponentType, Props extends keyof ComponentType> = {
-  [K in keyof Pick<ComponentType, Props> as TransformKey<K>]: ComponentType[K] extends EventEmitter<
-    infer V
-  >
+  [K in keyof Pick<
+    ComponentType,
+    Props
+  > as TransformKey<K>]: ComponentType[K] extends EventEmitter<infer V>
     ? (value: V) => void
     : never;
 };
@@ -145,7 +147,9 @@ export type QwikifiedComponentProps<
   ComponentType,
   Inputs extends keyof ComponentType = never,
   Outputs extends keyof ComponentType = never
-> = Partial<Pick<ComponentType, Inputs> & QwikifiedOutputs<ComponentType, Outputs>>;
+> = Partial<
+  Pick<ComponentType, Inputs> & QwikifiedOutputs<ComponentType, Outputs>
+>;
 
 /**
  * Marks provided keys `K` of type `T` as required
@@ -167,4 +171,5 @@ export type QwikifiedComponentProps<
  * }
  * ```
  */
-export type WithRequiredProps<T, K extends keyof T> = Omit<T, K> & Required<Pick<T, K>>;
+export type WithRequiredProps<T, K extends keyof T> = Omit<T, K> &
+  Required<Pick<T, K>>;

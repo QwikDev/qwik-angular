@@ -2,7 +2,10 @@ import { $, useOn, useOnDocument, useSignal } from '@builder.io/qwik';
 import { isServer } from '@builder.io/qwik/build';
 import type { QwikifyOptions, QwikifyProps } from './types';
 
-export const useWakeupSignal = (props: QwikifyProps<{}>, opts: QwikifyOptions = {}) => {
+export const useWakeupSignal = (
+  props: QwikifyProps<{}>,
+  opts: QwikifyOptions = {}
+) => {
   const signal = useSignal(false);
   const activate = $(() => (signal.value = true));
   const clientOnly = !!(props['client:only'] || opts?.clientOnly);

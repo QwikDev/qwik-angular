@@ -33,9 +33,16 @@ export class ClientRenderer {
 
   private initialized = false;
 
-  constructor(private component: Type<unknown>, private initialProps: Record<string, unknown>) {}
+  constructor(
+    private component: Type<unknown>,
+    private initialProps: Record<string, unknown>
+  ) {}
 
-  async render(hostElement: Element, slot: Element | undefined, props = this.initialProps) {
+  async render(
+    hostElement: Element,
+    slot: Element | undefined,
+    props = this.initialProps
+  ) {
     await this.loadZoneJs();
     try {
       this.appRef = await createApplication({
@@ -51,7 +58,10 @@ export class ClientRenderer {
       this.mirror = reflectComponentType(this.component);
 
       const projectableNodes =
-        slot && extractProjectableNodes(slot, [...(this.mirror?.ngContentSelectors ?? [])]);
+        slot &&
+        extractProjectableNodes(slot, [
+          ...(this.mirror?.ngContentSelectors ?? []),
+        ]);
 
       this.componentRef = createComponent(this.component, {
         environmentInjector: this.appRef!.injector,
@@ -109,10 +119,16 @@ export class ClientRenderer {
       return;
     }
 
-    const eventEmitters = this.mirror.outputs.map(({ propName, templateName }) => {
-      const emitter = (this.componentRef.instance as any)[propName] as EventEmitter<any>;
-      return emitter.pipe(map((value: any) => ({ name: templateName, value })));
-    });
+    const eventEmitters = this.mirror.outputs.map(
+      ({ propName, templateName }) => {
+        const emitter = (this.componentRef.instance as any)[
+          propName
+        ] as EventEmitter<any>;
+        return emitter.pipe(
+          map((value: any) => ({ name: templateName, value }))
+        );
+      }
+    );
     const outputEvents = merge(...eventEmitters);
     // listen for events from the merged stream and dispatch them as custom events
     outputEvents.pipe(takeUntil(this.onDestroy$)).subscribe((e) => {

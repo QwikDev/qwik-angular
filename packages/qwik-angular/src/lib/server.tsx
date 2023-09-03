@@ -34,11 +34,18 @@ const create = ɵRender3ComponentFactory.prototype.create;
   environmentInjector?: any
 ) {
   if (projectableNodesMap.has(this.componentType)) {
-    const document_local: typeof document = this['ngModule'].injector.get(DOCUMENT);
+    const document_local: typeof document =
+      this['ngModule'].injector.get(DOCUMENT);
     const slotComment = document_local.createComment(SLOT_MARK);
     projectableNodes = [[slotComment]]; // TODO: support multiple ng-content
   }
-  return create.call(this, injector, projectableNodes, rootSelectorOrNode, environmentInjector);
+  return create.call(
+    this,
+    injector,
+    projectableNodes,
+    rootSelectorOrNode,
+    environmentInjector
+  );
 };
 
 const QWIK_ANGULAR_STATIC_PROPS = new InjectionToken<{
@@ -73,7 +80,8 @@ const STATIC_PROPS_HOOK_PROVIDER: Provider = {
             // because there might be additional props
             // that aren't actually Input defined on the Component
             mirror.inputs.some(
-              ({ templateName, propName }) => templateName === key || propName === key
+              ({ templateName, propName }) =>
+                templateName === key || propName === key
             )
           ) {
             compRef.setInput(key, value);

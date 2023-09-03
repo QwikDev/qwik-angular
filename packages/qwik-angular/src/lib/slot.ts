@@ -1,4 +1,6 @@
-export const getHostProps = (props: Record<string, any>): Record<string, any> => {
+export const getHostProps = (
+  props: Record<string, any>
+): Record<string, any> => {
   const obj: Record<string, any> = {};
   Object.keys(props).forEach((key) => {
     if (key.startsWith(HOST_PREFIX)) {
@@ -8,7 +10,9 @@ export const getHostProps = (props: Record<string, any>): Record<string, any> =>
   return obj;
 };
 
-export const getAngularProps = (props: Record<string, any>): Record<string, any> => {
+export const getAngularProps = (
+  props: Record<string, any>
+): Record<string, any> => {
   const obj: Record<string, any> = {};
   Object.keys(props).forEach((key) => {
     if (!key.startsWith('client:') && !key.startsWith(HOST_PREFIX)) {

@@ -49,13 +49,13 @@ function analogQwikPlugin(options: PluginOptions) {
       return {
         optimizeDeps: {
           include: [
-            "@angular/core",
-            "@angular/platform-browser",
-            "@angular/platform-browser/animations",
-            "@angular/compiler",
-            "@angular/common",
-            "@angular/animations",
-            "@angular/animations/browser",
+            '@angular/core',
+            '@angular/platform-browser',
+            '@angular/platform-browser/animations',
+            '@angular/compiler',
+            '@angular/common',
+            '@angular/animations',
+            '@angular/animations/browser',
           ],
           exclude: ['@angular/platform-server'],
         },
@@ -63,11 +63,17 @@ function analogQwikPlugin(options: PluginOptions) {
     },
 
     load: function (id) {
-      if (viteCommand === 'serve' && bundleSassFilePaths?.some((p) => id.includes(p))) {
+      if (
+        viteCommand === 'serve' &&
+        bundleSassFilePaths?.some((p) => id.includes(p))
+      ) {
         // TODO: normalize path
         id = id.replace(/\?(.*)/, '');
         try {
-          const compiledAsset = compile(id, options.bundleSassFilesInDevMode?.compileOptions).css;
+          const compiledAsset = compile(
+            id,
+            options.bundleSassFilesInDevMode?.compileOptions
+          ).css;
           return compiledAsset;
         } catch (e) {
           // if failed to compile, do nothing

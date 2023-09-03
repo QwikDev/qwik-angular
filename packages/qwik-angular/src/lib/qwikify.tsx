@@ -83,7 +83,11 @@ export function qwikifyQrl<PROPS extends {}>(
               hostRef.value = el;
               if (isBrowser && internalState.value) {
                 internalState.value.renderer &&
-                  (await internalState.value.renderer.render(el, slotRef.value, props));
+                  (await internalState.value.renderer.render(
+                    el,
+                    slotRef.value,
+                    props
+                  ));
               }
             });
           }}
