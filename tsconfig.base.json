@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "add-angular-to-qwik": ["packages/add-angular-to-qwik/src/index.ts"],
       "qwik-angular": ["packages/qwik-angular/src/index.ts"],
       "qwik-angular/vite": ["packages/qwik-angular/src/vite.ts"],
       "qwik-angular2": ["packages/qwik-angular2/src/index.ts"]

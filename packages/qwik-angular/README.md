@@ -7,7 +7,7 @@ QwikAngular allows you to use Angular components in Qwik, including the whole ec
 Inside your Qwik app run:
 
 ```shell
-npm run qwik add angular
+npx add-angular-to-qwik@latest
 ```
 
 If you don't have a Qwik app yet, then you need to [create one first](../../../docs/getting-started/index.mdx), then, follow the instructions and run the command add Angular to your app.
@@ -15,8 +15,10 @@ If you don't have a Qwik app yet, then you need to [create one first](../../../d
 ```shell
 npm create qwik@latest
 cd to-my-app
-npm run qwik add angular
+npx add-angular-to-qwik@latest
 ```
+
+Be aware that in the dev mode the app may have to reload for a few times while vite optimizes Angular dependencies. This will not be the case in the built app.
 
 ## Usage
 

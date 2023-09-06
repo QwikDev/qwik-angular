@@ -1,0 +1,33 @@
+{
+  "name": "add-angular-to-qwik",
+  "version": "0.1.3",
+  "private": false,
+  "description": "Adds Angular to the Qwik repo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/QwikDev/qwik-angular.git",
+    "directory": "packages/add-angular-to-qwik"
+  },
+  "keywords": [
+    "Qwik",
+    "Angular",
+    "Web",
+    "CLI"
+  ],
+  "bin": {
+    "add-angular-to-qwik": "./bin/index.js"
+  },
+  "author": "Dmitriy Stepanenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/QwikDev/qwik-angular/issues"
+  },
+  "homepage": "https://github.com/QwikDev/qwik-angular",
+  "peerDependencies": {
+    "qwik-nx": "^1.0.9"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "name": "add-angular-to-qwik",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/add-angular-to-qwik",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/add-angular-to-qwik",
+        "main": "packages/add-angular-to-qwik/bin/add-angular-to-qwik.ts",
+        "tsConfig": "packages/add-angular-to-qwik/tsconfig.lib.json",
+        "assets": [
+          "packages/add-angular-to-qwik/README.md",
+          {
+            "input": "packages/add-angular-to-qwik",
+            "glob": "**/files/**",
+            "output": "/"
+          },
+          {
+            "input": "packages/add-angular-to-qwik",
+            "glob": "**/files/**/.gitkeep",
+            "output": "/"
+          },
+          {
+            "input": "packages/add-angular-to-qwik",
+            "glob": "**/*.json",
+            "ignore": ["**/tsconfig*.json", "project.json", ".eslintrc.json"],
+            "output": "/"
+          },
+          {
+            "input": "packages/add-angular-to-qwik",
+            "glob": "**/*.js",
+            "ignore": ["**/jest.config.js"],
+            "output": "/"
+          },
+          {
+            "input": "packages/add-angular-to-qwik",
+            "glob": "**/*.d.ts",
+            "output": "/"
+          },
+          {
+            "input": "",
+            "glob": "LICENSE",
+            "output": "/"
+          }
+        ],
+        "updateBuildableProjectDepsInPackageJson": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/add-angular-to-qwik/**/*.ts",
+          "packages/add-angular-to-qwik/**/*.spec.ts",
+          "packages/add-angular-to-qwik/**/*_spec.ts",
+          "packages/add-angular-to-qwik/**/*.spec.tsx",
+          "packages/add-angular-to-qwik/**/*.spec.js",
+          "packages/add-angular-to-qwik/**/*.spec.jsx",
+          "packages/add-angular-to-qwik/**/*.d.ts"
+        ]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {}
+    },
+    "version-publish": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "noVerify": true,
+        "push": false,
+        "releaseAs": "patch",
+        "postTargets": [
+          "add-angular-to-qwik:publish",
+          "add-angular-to-qwik:push-to-github"
+        ]
+      }
+    },
+    "publish": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      },
+      "configurations": {
+        "local": {
+          "registry": "http://localhost:4873"
+        }
+      }
+    },
+    "push-to-github": {
+      "executor": "@jscutlery/semver:github",
+      "options": {
+        "tag": "${tag}",
+        "notes": "${notes}"
+      }
+    }
+  },
+  "implicitDependencies": []
+}
