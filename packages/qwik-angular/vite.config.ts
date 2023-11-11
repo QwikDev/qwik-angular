@@ -1,7 +1,7 @@
 /// <reference types="vitest" />
 import { Plugin, defineConfig } from 'vite';
 
-import viteTsConfigPaths from 'vite-tsconfig-paths';
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import dts from 'vite-plugin-dts';
 import * as path from 'path';
 import { qwikVite } from '@builder.io/qwik/optimizer';
@@ -18,9 +18,7 @@ export default defineConfig({
       skipDiagnostics: true,
     }),
 
-    viteTsConfigPaths({
-      root: '../../',
-    }),
+    nxViteTsPaths(),
     vitePluginFixBundle(),
   ],
 

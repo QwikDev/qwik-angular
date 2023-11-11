@@ -12,7 +12,7 @@ import { createApplication } from '@angular/platform-browser';
 import { merge, Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 import { extractProjectableNodes } from './extract-projectable-nodes';
-import zoneJs from 'zone.js/dist/zone.min.js?url';
+import zoneJs from 'zone.js?url';
 import { getAngularProps } from './slot';
 import { provideAnimations } from '@angular/platform-browser/animations';
 
