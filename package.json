@@ -26,7 +26,7 @@
     "node-fetch": "~3.3.0",
     "nx": "17.1.1",
     "prettier": "^2.6.2",
-    "qwik-nx": "^2.0.0",
+    "qwik-nx": "^2.0.2",
     "rollup": "^3.27.1",
     "tslib": "^2.3.0",
     "typescript": "5.2.2",
