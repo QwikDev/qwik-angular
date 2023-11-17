@@ -4,8 +4,11 @@ storage: ../tmp/local-registry/storage
 # a list of other known repositories we can talk to
 uplinks:
   npmjs:
-    url: http://localhost:4873/
-    maxage: 60m
+    url: https://registry.npmjs.org/
+    cache: true
+  yarn:
+    url: https://registry.yarnpkg.com
+    cache: true
 
 packages:
   '**':
@@ -22,7 +25,8 @@ packages:
 logs:
   type: stdout
   format: pretty
-  level: warn
+  level: http
 
 publish:
   allow_offline: true # set offline to true to allow publish offline
+

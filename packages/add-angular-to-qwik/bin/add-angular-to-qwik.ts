@@ -8,7 +8,7 @@ import {
   detectPackageManager,
 } from 'nx/src/utils/package-manager';
 import { output } from 'create-nx-workspace/src/utils/output';
-import { readFileSync, unlinkSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync, rmSync } from 'fs';
 import { execSync } from 'child_process';
 
 interface Arguments extends CreateWorkspaceOptions {
@@ -135,7 +135,8 @@ function getRelevantPackageManagerCommand() {
 }
 
 function cleanup(isQwikNxInstalled: boolean, uninstallCmd: string) {
-  unlinkSync('project.json');
+  rmSync('.nx', {force: true, recursive: true});
+  rmSync('project.json');
   if (!isQwikNxInstalled) {
     execSync(`${uninstallCmd} qwik-nx nx`, { stdio: [0, 1, 2] });
   }

@@ -54,10 +54,11 @@ function analogQwikPlugin(options: PluginOptions) {
             '@angular/platform-browser/animations',
             '@angular/compiler',
             '@angular/common',
+            '@angular/common/http',
             '@angular/animations',
             '@angular/animations/browser',
+            '@angular/platform-server',
           ],
-          exclude: ['@angular/platform-server'],
         },
       };
     },

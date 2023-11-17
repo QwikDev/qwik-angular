@@ -24,7 +24,8 @@
   },
   "homepage": "https://github.com/QwikDev/qwik-angular",
   "peerDependencies": {
-    "qwik-nx": "^1.0.9"
+    "qwik-nx": "^2.0.2",
+    "create-nx-workspace": "17.1.1"
   },
   "publishConfig": {
     "access": "public",

@@ -45,12 +45,11 @@
             "glob": "LICENSE",
             "output": "/"
           }
-        ],
-        "updateBuildableProjectDepsInPackageJson": true
+        ]
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
           "packages/add-angular-to-qwik/**/*.ts",
