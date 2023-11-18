@@ -27,7 +27,7 @@ export class ClientRenderer {
   private readonly knownInputs = new Set();
   private readonly knownOutputs = new Set();
 
-  private readonly outputHandlers = new Map<string, Function>();
+  private readonly outputHandlers = new Map<string, (value?: any) => void>();
 
   private readonly onDestroy$ = new Subject<void>();
 

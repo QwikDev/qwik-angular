@@ -2,12 +2,19 @@
   "name": "@qwik-angular/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "prepare": "husky install"
+  },
   "private": true,
+  "packageManager": "pnpm@8.10.5",
+  "engines": {
+    "pnpm": "^8.0.0"
+  },
   "devDependencies": {
     "@builder.io/qwik": "~1.2.6",
     "@builder.io/qwik-city": "~1.2.6",
     "@nx/angular": "17.1.1",
+    "@nx/devkit": "17.1.1",
     "@nx/eslint-plugin": "17.1.1",
     "@nx/js": "17.1.1",
     "@nx/vite": "17.1.1",
@@ -37,7 +44,11 @@
     "vite-tsconfig-paths": "~4.2.0",
     "vitest": "~0.32.0",
     "yargs": "^17.7.2",
-    "@nx/eslint": "17.1.1"
+    "@nx/eslint": "17.1.1",
+    "husky": "^8.0.0",
+    "@commitlint/cli": "^17.6.5",
+    "@commitlint/config-conventional": "^17.6.5",
+    "lint-staged": "^13.2.2"
   },
   "nx": {
     "includedScripts": []

@@ -19,7 +19,7 @@ import type { Internal, QwikifyOptions, QwikifyProps } from './types';
 import { renderFromServer } from './server';
 import { useWakeupSignal } from './wake-up-signal';
 
-export function qwikifyQrl<PROPS extends {}>(
+export function qwikifyQrl<PROPS extends Record<string, any>>(
   angularCmp$: QRL<Type<unknown>>,
   qwikifyOptions?: QwikifyOptions
 ) {
