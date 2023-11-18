@@ -3,7 +3,7 @@ import { isServer } from '@builder.io/qwik/build';
 import type { QwikifyOptions, QwikifyProps } from './types';
 
 export const useWakeupSignal = (
-  props: QwikifyProps<{}>,
+  props: QwikifyProps<Record<string, any>>,
   opts: QwikifyOptions = {}
 ) => {
   const signal = useSignal(false);
